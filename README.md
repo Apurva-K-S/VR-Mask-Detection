@@ -1,7 +1,9 @@
 Door Entry System 
 <br>
 System denies entry if the person is not wearing a mask. System is developed in Python.
+
 <br>
+
 Modules 
 <br>
 1. Human detection
