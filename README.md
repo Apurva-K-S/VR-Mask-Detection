@@ -8,7 +8,6 @@ Modules
 2. Face Detection
 3. Face Mask detection
 <br>
-#
 Libraries Used
 <br>
 1. Opencv
