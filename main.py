@@ -1,5 +1,7 @@
 import cv2
 import yolo
+import face_detection
+
 capture= cv2.VideoCapture(0)
 frame_width=capture.get(cv2.CAP_PROP_FRAME_WIDTH)
 frame_height=capture.get(cv2.CAP_PROP_FRAME_HEIGHT)
@@ -16,10 +18,15 @@ ret,frame=capture.read()
 if ret is True:
     detected=yolo.humanDetect(frame)
     if detected is not None:
-        cv2.imshow("human detected",detected)
-        cv2.imwrite("human.jpg", detected) # extra line added. This saves the image. Which will be used for face detection.
-        cv2.waitKey()
+        #cv2.imshow("human detected",detected)
+        face_detected = face_detection.faceDetect(detected)
+        if face_detected is not None:
+            cv2.imshow("face detected",face_detected)
+        else:
+            print('face not detected')
     else:
         print('Human Not detected')
+
 capture.release()
+cv2.waitKey(0)
 cv2.destroyAllWindows()
