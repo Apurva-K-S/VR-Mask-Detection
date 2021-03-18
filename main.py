@@ -17,6 +17,7 @@ if ret is True:
     detected=yolo.humanDetect(frame)
     if detected is not None:
         cv2.imshow("human detected",detected)
+        cv2.imwrite("human.jpg", detected) # extra line added. This saves the image. Which will be used for face detection.
         cv2.waitKey()
     else:
         print('Human Not detected')
